@@ -6,7 +6,6 @@
 package com.base.engine;
 
 import java.util.HashMap;
-import org.lwjgl.opengl.GL20;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL32.*;
 
