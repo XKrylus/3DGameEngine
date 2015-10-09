@@ -13,6 +13,7 @@ public class Vertex {
     
     public static final int SIZE = 8;
     
+    //UPDATE Util.createFlippedBuffer(Vertices[]) when these variables change!
     private Vector3f pos;       // 3
     private Vector2f texCoord;  // 2
     private Vector3f normal;

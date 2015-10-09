@@ -5,7 +5,6 @@
  */
 package com.base.engine;
 
-import com.sun.xml.internal.fastinfoset.util.StringArray;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -17,16 +16,32 @@ import org.lwjgl.BufferUtils;
  */
 public class Util {
     
+    /**
+     * Creates float buffer with given size
+     * @param size
+     * @return 
+     */
     public static FloatBuffer createFloatBuffer(int size) {
         
         return BufferUtils.createFloatBuffer(size);
     }
     
+    /**
+     * Creates int buffer with given size
+     * @param size
+     * @return 
+     */
     public static IntBuffer createIntBuffer(int size) {
         
         return BufferUtils.createIntBuffer(size);
     }
     
+    /**
+     * Creates flipped buffer and loads it with given values. Also does the
+     * flipping of the buffer.
+     * @param values
+     * @return 
+     */
     public static IntBuffer createFlippedBuffer(int... values) {
         
         IntBuffer buffer = createIntBuffer(values.length);
@@ -37,6 +52,14 @@ public class Util {
         return buffer;
     }
     
+    /**
+     * Creates flipped buffer and loads it with given vertices. Currently,
+     * vertices CAN AND WILL be redefined quite often, and since vertex 
+     * components have to be input manually, this method NEEDS to be updated
+     * as well.
+     * @param vertices
+     * @return 
+     */
     public static FloatBuffer createFlippedBuffer(Vertex[] vertices) {
         
         FloatBuffer buffer = createFloatBuffer(vertices.length * Vertex.SIZE);
@@ -57,6 +80,11 @@ public class Util {
         return buffer;
     }
     
+    /**
+     * Creates flipped buffer and loads it with given Matrix4f values.
+     * @param value
+     * @return 
+     */
     public static FloatBuffer createFlippedBuffer(Matrix4f value) {
         // 4 * 4 -> actuall size of Matrix4f, constant
         FloatBuffer buffer = createFloatBuffer(4 * 4);
@@ -71,6 +99,11 @@ public class Util {
         return buffer;
     }
     
+    /**
+     * Removes empty Strings from ArrayList
+     * @param data
+     * @return 
+     */
     public static String[] removeEmptyStrings(String[] data) {
         ArrayList<String> result = new ArrayList<String>();
         
@@ -85,6 +118,11 @@ public class Util {
         return res;
     }
     
+    /**
+     * Converts Integer array to int array
+     * @param data
+     * @return 
+     */
     public static int[] toIntArray(Integer[] data) {
         
         int[] result = new int[data.length];

@@ -31,6 +31,12 @@ public class PhongShader extends Shader {
         addUniform("directionalLight.direction");
     }
     
+    /**
+     * Updates all Phong Shader uniforms
+     * @param worldMatrix
+     * @param projectedMatrix
+     * @param material 
+     */
     @Override
     public void updateUniforms(Matrix4f worldMatrix, Matrix4f projectedMatrix, Material material) {
         
@@ -70,7 +76,7 @@ public class PhongShader extends Shader {
     }
     
     /**
-     * 
+     * sets uniform value for .color and .intensity of BaseLight
      * @param uniformName
      * @param baseLight 
      */
@@ -80,7 +86,7 @@ public class PhongShader extends Shader {
     }
     
     /**
-     * 
+     * Sets uniform value for .base and .direction of DirectionalLight
      * @param uniformName
      * @param directionalLight 
      */

@@ -49,7 +49,7 @@ public class Mesh {
         //Calculates total size of vertices to be stored
         size = verticies.length * Vertex.SIZE;
         
-        //But we want actuall size of indices. Because, many points can be
+        //But we want actual size of indices. Because, many points can be
         //reused now! (and this took me about an hour to even notice...)
         size = indices.length;
         
@@ -61,6 +61,9 @@ public class Mesh {
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, Util.createFlippedBuffer(indices), GL_STATIC_DRAW);
     }
     
+    /**
+     * Handles drawing of the scene
+     */
     public void draw() {
         
         glEnableVertexAttribArray(0);
@@ -87,6 +90,11 @@ public class Mesh {
 
     }
     
+    /**
+     * Calculates normals for input vertices, based on given indeces
+     * @param vertices
+     * @param indices 
+     */
     private void calcNormals(Vertex[] vertices, int[] indices) {
         for(int i = 0; i < indices.length; i += 3) {
             int i0 = indices[i];

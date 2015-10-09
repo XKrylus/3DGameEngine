@@ -8,7 +8,7 @@ package com.base.engine;
 import org.lwjgl.input.Keyboard;
 
 /**
- * Actuall game logic. Differs by app
+ * Actual game logic. Differs by current application
  * @author Honza
  */
 public class Game {
@@ -18,6 +18,8 @@ public class Game {
     private Transform transform;
     private Camera camera;
     private Material material;
+    
+    private InputControl inputControl;
     
     public Matrix4f matrix = new Matrix4f();
     
@@ -29,6 +31,8 @@ public class Game {
         shader = new PhongShader();
         camera = new Camera();
         material = new Material(ResourceLoader.loadTexture("checkerboardBlue.png"), new Vector3f(1, 1, 1));
+        
+        inputControl = new InputControl();
         
         //Sets ambient light value
         PhongShader.setAmbientLight(new Vector3f(0.1f, 0.1f, 0.1f));
@@ -108,6 +112,8 @@ public class Game {
             System.out.println("We just released mouse button 1 (rigth button by default) at " + Input.getMousePosition() + "!");*/
         
         camera.input();
+        inputControl.input();
+        
         
     }
     
@@ -118,7 +124,7 @@ public class Game {
         
         temp += Time.getDelta();
         
-        float sinTemp = ((float)Math.sin(temp));
+        float sinTemp = ((float)Math.sin(temp) * 0.5f);
         
         transform.setTranslation(sinTemp, 0, 2);
         transform.setRotation(sinTemp * 180, sinTemp * 180, 0);

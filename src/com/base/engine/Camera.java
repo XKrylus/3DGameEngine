@@ -38,6 +38,10 @@ public class Camera {
         forward.normalize();
     }
     
+    /**
+     * Takes care of camera movement set by keys. W,A,S,D for moving in space, 
+     * arrow keys for rotation in space.
+     */
     public void input() {
         
         float movAmt = (float)(10 * Time.getDelta());
@@ -62,11 +66,20 @@ public class Camera {
             rotateY(rotAmt);
     }
     
+    /**
+     * moves camera in set direction a by set ammount
+     * @param dir direction in which camera moves
+     * @param amt ammount of distance by which camera moves
+     */
     public void move(Vector3f dir, float amt) {
         
         pos = pos.add(dir.mul(amt));
     }
     
+    /**
+     * Rotates camera around Y axis
+     * @param angle ammount by which the camera rotates
+     */
     public void rotateY(float angle) {
         
         //Horizontal axis
@@ -80,6 +93,10 @@ public class Camera {
         up.normalize();
     }
     
+    /**
+     * Rotates camera around X axis
+     * @param angle ammount by which the camera rotates
+     */
     public void rotateX(float angle) {
         
         //Horizontal axis
@@ -93,6 +110,10 @@ public class Camera {
         up.normalize();
     }
     
+    /**
+     * Calculates left rotation (by rule of hand...)
+     * @return normalized left rotation
+     */
     public Vector3f getLeft() {
         
         Vector3f left = forward.cross(up);
@@ -101,6 +122,10 @@ public class Camera {
         return left;
     }
     
+    /**
+     * Calculates right rotation (by rule of hand...)
+     * @return normalized right rotation
+     */
     public Vector3f getRight() {
         
         Vector3f right = up.cross(forward);

@@ -113,7 +113,8 @@ public class MainComponent {
                 game.input();
                 Input.update();
                 
-                game.update();
+                //lockUpdate disables updating, controlled by pressing space
+                if(InputControl.lockUpdate)game.update();
                 
                 if(frameCounter >= Time.SECOND) {
                     System.out.println(frames);

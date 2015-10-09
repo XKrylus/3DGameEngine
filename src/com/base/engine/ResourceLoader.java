@@ -68,7 +68,7 @@ public class ResourceLoader {
     
     
     /**
-     * Loads mesg from .obj file.
+     * Loads mesh from .obj file.
      * @param fileName name of the file
      * @return mesh containing data
      */

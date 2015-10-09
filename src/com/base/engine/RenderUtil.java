@@ -25,6 +25,10 @@ public class RenderUtil {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);    
     }
     
+    /**
+     * Sets GL_TEXTURE_2D enabled or disabled
+     * @param enabled 
+     */
     public static void setTextures(boolean enabled) {
         
         if(enabled) {
@@ -35,6 +39,9 @@ public class RenderUtil {
         }
     }
     
+    /**
+     * Unbinds GL_TEXTURE_2D
+     */
     public static void unbindTextures() {
         glBindTexture(GL_TEXTURE_2D, 0);
     }
@@ -76,6 +83,10 @@ public class RenderUtil {
         glEnable(GL_FRAMEBUFFER_SRGB);
     }
     
+    /**
+     * Returns OpenGL version currently in use
+     * @return 
+     */
     public static String getOpenGLVersion() {
         return glGetString(GL_VERSION);
     }
